@@ -55,7 +55,8 @@ def sua_conta():
                 return  
 
 def funcao02():
-    print('funcao2')
+    mostrar_resumo()
+    voltar_menu()
 
 def funcao03():
     print('funcao3')

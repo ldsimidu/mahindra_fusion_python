@@ -1,5 +1,6 @@
 import os
 import platform
+from database import *
 
 def solicitar_dado(mensagem, funcao_validacao):
     limpar_tela()
@@ -12,6 +13,23 @@ def imprime_dados_conta(dados):
     for chave, valor in dados.items():
         print(f"{chave: <10}: {valor}")
     print("-" * 30)
+
+def mostrar_resumo():
+    limpar_tela()
+    print(titulo)
+    print("\nIntrodução:")
+    print(introducao)
+    print("\nProblema:")
+    print(problema)
+    print("\nSolução Proposta:")
+    print(solucao)
+    print("\n" + objetivos)
+    print("\nJustificativa:")
+    print(justificativa)
+    print("\nConclusão:")
+    print(conclusao + '\n\n')
+    
+
 
 def escolha(opcoes, msg):
     escolha = input(msg).lower()
