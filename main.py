@@ -69,13 +69,7 @@ def funcao03():
 
 def funcao05():
     print(dados_conta)
-menu_principal_opcoes = {
-    '1':sua_conta,
-    '2':sobre_nos,
-    '3':funcao03,
-    '4':market_mf,
-    '5':funcao05
-}
+
 
 def menu_principal():
     limpar_tela()
@@ -97,12 +91,7 @@ def menu_principal():
         menu_principal()
         
 
-menu_market_opcoes = {
-    '1':'sobre',
-    '2':'nf1',
-    '3':'nft2',
-    '4':'nft3'
-}
+
 
 def menu_market():
     limpar_tela()
@@ -114,11 +103,53 @@ def menu_market():
 ▀▀▀  ▀▀▀  ▀▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪    ▀▀  █▪▀▀▀ ▀  ▀ .▀  ▀·▀  ▀ ▀▀▀  ▀▀▀ 
 ''')
     print('''
--=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-=-\n(1). Sobre\n\n(2). NFT1\n\n(3). NFT2\n\n(4). NFT3\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n  
+-=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-\n(1). Sobre\n\n(2). Produtos\n\n(3). Voltar\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n  
         ''')
     
     escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
-    if escolher_opcao in menu_opcoes:
-        menu_opcoes[escolher_opcao]()  
+    if escolher_opcao in menu_market_opcoes:
+        menu_market_opcoes[escolher_opcao]()  
     else:
         menu_market()
+
+
+def produtos_market():
+    limpar_tela()
+    print('''
+·▄▄▄▄• ▄▌.▄▄ · ▪         ▐ ▄     • ▌ ▄ ·.  ▄▄▄· ▄▄▄  ▄ •▄ ▄▄▄ .▄▄▄▄▄
+▐▄▄·█▪██▌▐█ ▀. ██ ▪     •█▌▐█    ·██ ▐███▪▐█ ▀█ ▀▄ █·█▌▄▌▪▀▄.▀·•██  
+██▪ █▌▐█▌▄▀▀▀█▄▐█· ▄█▀▄ ▐█▐▐▌    ▐█ ▌▐▌▐█·▄█▀▀█ ▐▀▀▄ ▐▀▀▄·▐▀▀▪▄ ▐█.▪
+██▌.▐█▄█▌▐█▄▪▐█▐█▌▐█▌.▐▌██▐█▌    ██ ██▌▐█▌▐█ ▪▐▌▐█•█▌▐█.█▌▐█▄▄▌ ▐█▌·
+▀▀▀  ▀▀▀  ▀▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪    ▀▀  █▪▀▀▀ ▀  ▀ .▀  ▀·▀  ▀ ▀▀▀  ▀▀▀ 
+''')
+    print('''
+-=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-\n(1). NFT1\n\n(2). NFT2\n\n(3). NFT3\n\n(4). Voltar\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n  
+        ''')
+    
+    escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
+    if escolher_opcao in produtos_market_opcoes:
+        produtos_market_opcoes[escolher_opcao]()  
+    else:
+        produtos_market()
+
+
+menu_principal_opcoes = {
+    '1':sua_conta,
+    '2':sobre_nos,
+    '3':funcao03,
+    '4':market_mf,
+    '5':funcao05
+}
+
+produtos_market_opcoes = {
+    '1':'nft1',
+    '2':'nft2',
+    '3':'ntf3',
+    '4':menu_market
+}
+
+menu_market_opcoes = {
+    '1':'sobre',
+    '2':produtos_market,
+    '3':main
+}
