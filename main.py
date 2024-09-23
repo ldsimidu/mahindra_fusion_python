@@ -1,15 +1,35 @@
 from function import *
 from database import *
+dados_conta = None
+
+menu_principal_opcoes = {
+    '1':sua_conta,
+    '2':sobre_nos,
+    '3':funcao03,
+    '4':market_mf,
+    '5':funcao05
+}
+
+menu_market_opcoes = {
+    '1':'sobre',
+    '2':'nf1',
+    '3':'nft2',
+    '4':'nft3'
+}
 
 def main():
     menu_principal()
 
+def confirma_idade(idade):
+    if idade < 18:
+        print('Você não tem permissão para entrar neste serviço.\nmotivo: IDADE ')
+        voltar_menu()
+    
 def voltar_menu():
     input('\n\nPressione a tecla ENTER para voltar ao menu!')
     limpar_tela()
     main()
 
-dados_conta = None
 def sua_conta():
     global dados_conta
     if dados_conta is not None:
@@ -50,22 +70,20 @@ def sobre_nos():
     mostrar_resumo()
     voltar_menu()
 
-def funcao03():
-    print('funcao3')
+def market_mf():
+    if dados_conta == None:
+        print('Você não possui uma conta, crie uma primeiro.')
+        voltar_menu()
+    else:
+        idade = dados_conta['Idade']
+        confirma_idade(idade)
+        menu_market()
 
-def funcao04():
+def funcao03():
     print('funcao4')
 
 def funcao05():
-    print('funcao5')
-
-menu_opcoes = {
-    '1':sua_conta,
-    '2':sobre_nos,
-    '3':funcao03,
-    '4':funcao04,
-    '5':funcao05
-}
+    print(dados_conta)
 
 def menu_principal():
     limpar_tela()
@@ -82,9 +100,28 @@ def menu_principal():
         ''')
     
     escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
-    if escolher_opcao in menu_opcoes:
-        menu_opcoes[escolher_opcao]()  
+    if escolher_opcao in menu_principal_opcoes:
+        menu_principal_opcoes[escolher_opcao]()  
     else:
         menu_principal()
     
+def menu_market():
+    limpar_tela()
+    print('''
+
+·▄▄▄▄• ▄▌.▄▄ · ▪         ▐ ▄     • ▌ ▄ ·.  ▄▄▄· ▄▄▄  ▄ •▄ ▄▄▄ .▄▄▄▄▄
+▐▄▄·█▪██▌▐█ ▀. ██ ▪     •█▌▐█    ·██ ▐███▪▐█ ▀█ ▀▄ █·█▌▄▌▪▀▄.▀·•██  
+██▪ █▌▐█▌▄▀▀▀█▄▐█· ▄█▀▄ ▐█▐▐▌    ▐█ ▌▐▌▐█·▄█▀▀█ ▐▀▀▄ ▐▀▀▄·▐▀▀▪▄ ▐█.▪
+██▌.▐█▄█▌▐█▄▪▐█▐█▌▐█▌.▐▌██▐█▌    ██ ██▌▐█▌▐█ ▪▐▌▐█•█▌▐█.█▌▐█▄▄▌ ▐█▌·
+▀▀▀  ▀▀▀  ▀▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪    ▀▀  █▪▀▀▀ ▀  ▀ .▀  ▀·▀  ▀ ▀▀▀  ▀▀▀ 
+
+''')
+    print('''
+-=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-=-\n(1). Sobre\n\n(2). NFT1\N\N(3). NFT2\n\n(4). NFT3\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n  
+        ''')
     
+    escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
+    if escolher_opcao in menu_opcoes:
+        menu_opcoes[escolher_opcao]()  
+    else:
+        menu_market()
