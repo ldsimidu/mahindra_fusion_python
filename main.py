@@ -57,7 +57,7 @@ def funcao04():
     print('funcao4')
 
 def funcao05():
-    print('funcao5')
+    print(dados_conta)
 
 menu_opcoes = {
     '1':sua_conta,
