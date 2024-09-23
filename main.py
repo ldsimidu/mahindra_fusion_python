@@ -2,22 +2,33 @@ from function import *
 from database import *
 dados_conta = None
 
+menu_principal_opcoes = {
+    '1':sua_conta,
+    '2':sobre_nos,
+    '3':funcao03,
+    '4':market_mf,
+    '5':funcao05
+}
+
+menu_market_opcoes = {
+    '1':'sobre',
+    '2':'nf1',
+    '3':'nft2',
+    '4':'nft3'
+}
 
 def main():
     menu_principal()
-
 
 def confirma_idade(idade):
     if idade < 18:
         print('Você não tem permissão para entrar neste serviço.\nmotivo: IDADE ')
         voltar_menu()
     
-
 def voltar_menu():
     input('\n\nPressione a tecla ENTER para voltar ao menu!')
     limpar_tela()
     main()
-
 
 def sua_conta():
     global dados_conta
@@ -74,14 +85,6 @@ def funcao03():
 def funcao05():
     print(dados_conta)
 
-menu_opcoes = {
-    '1':sua_conta,
-    '2':sobre_nos,
-    '3':funcao03,
-    '4':market_mf,
-    '5':funcao05
-}
-
 def menu_principal():
     limpar_tela()
     print('''
@@ -97,8 +100,8 @@ def menu_principal():
         ''')
     
     escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
-    if escolher_opcao in menu_opcoes:
-        menu_opcoes[escolher_opcao]()  
+    if escolher_opcao in menu_principal_opcoes:
+        menu_principal_opcoes[escolher_opcao]()  
     else:
         menu_principal()
     
