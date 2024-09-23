@@ -2,21 +2,6 @@ from function import *
 from database import *
 dados_conta = None
 
-menu_principal_opcoes = {
-    '1':sua_conta,
-    '2':sobre_nos,
-    '3':funcao03,
-    '4':market_mf,
-    '5':funcao05
-}
-
-menu_market_opcoes = {
-    '1':'sobre',
-    '2':'nf1',
-    '3':'nft2',
-    '4':'nft3'
-}
-
 def main():
     menu_principal()
 
@@ -84,18 +69,24 @@ def funcao03():
 
 def funcao05():
     print(dados_conta)
+menu_principal_opcoes = {
+    '1':sua_conta,
+    '2':sobre_nos,
+    '3':funcao03,
+    '4':market_mf,
+    '5':funcao05
+}
 
 def menu_principal():
     limpar_tela()
     print('''
-        
 • ▌ ▄ ·.  ▄▄▄·  ▄ .▄▪   ▐ ▄ ·▄▄▄▄  ▄▄▄   ▄▄▄·     ·▄▄▄▄• ▄▌.▄▄ · ▪         ▐ ▄ 
 ·██ ▐███▪▐█ ▀█ ██▪▐███ •█▌▐███▪ ██ ▀▄ █·▐█ ▀█     ▐▄▄·█▪██▌▐█ ▀. ██ ▪     •█▌▐█
 ▐█ ▌▐▌▐█·▄█▀▀█ ██▀▐█▐█·▐█▐▐▌▐█· ▐█▌▐▀▀▄ ▄█▀▀█     ██▪ █▌▐█▌▄▀▀▀█▄▐█· ▄█▀▄ ▐█▐▐▌
 ██ ██▌▐█▌▐█ ▪▐▌██▌▐▀▐█▌██▐█▌██. ██ ▐█•█▌▐█ ▪▐▌    ██▌.▐█▄█▌▐█▄▪▐█▐█▌▐█▌.▐▌██▐█▌
 ▀▀  █▪▀▀▀ ▀  ▀ ▀▀▀ ·▀▀▀▀▀ █▪▀▀▀▀▀• .▀  ▀ ▀  ▀     ▀▀▀  ▀▀▀  ▀▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪
-
-        ''')
+''')
+    
     print('''-=-=-=-=-=-=-=-=-=- MENU -=-=-=-=-=-=-=-=-=-=-\n(1). Sua conta\n\n(2). Sobre Nós\n\n(3). BET\n\n(4). Mercado Virtual\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n
         ''')
     
@@ -104,20 +95,26 @@ def menu_principal():
         menu_principal_opcoes[escolher_opcao]()  
     else:
         menu_principal()
-    
+        
+
+menu_market_opcoes = {
+    '1':'sobre',
+    '2':'nf1',
+    '3':'nft2',
+    '4':'nft3'
+}
+
 def menu_market():
     limpar_tela()
     print('''
-
 ·▄▄▄▄• ▄▌.▄▄ · ▪         ▐ ▄     • ▌ ▄ ·.  ▄▄▄· ▄▄▄  ▄ •▄ ▄▄▄ .▄▄▄▄▄
 ▐▄▄·█▪██▌▐█ ▀. ██ ▪     •█▌▐█    ·██ ▐███▪▐█ ▀█ ▀▄ █·█▌▄▌▪▀▄.▀·•██  
 ██▪ █▌▐█▌▄▀▀▀█▄▐█· ▄█▀▄ ▐█▐▐▌    ▐█ ▌▐▌▐█·▄█▀▀█ ▐▀▀▄ ▐▀▀▄·▐▀▀▪▄ ▐█.▪
 ██▌.▐█▄█▌▐█▄▪▐█▐█▌▐█▌.▐▌██▐█▌    ██ ██▌▐█▌▐█ ▪▐▌▐█•█▌▐█.█▌▐█▄▄▌ ▐█▌·
 ▀▀▀  ▀▀▀  ▀▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪    ▀▀  █▪▀▀▀ ▀  ▀ .▀  ▀·▀  ▀ ▀▀▀  ▀▀▀ 
-
 ''')
     print('''
--=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-=-\n(1). Sobre\n\n(2). NFT1\N\N(3). NFT2\n\n(4). NFT3\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n  
+-=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-=-\n(1). Sobre\n\n(2). NFT1\n\n(3). NFT2\n\n(4). NFT3\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n  
         ''')
     
     escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
