@@ -51,3 +51,4 @@ conclusao = (
     "Com o crescimento do mercado de streaming, o Mahindra Fusion apresenta uma oportunidade de expandir a "
     "presença da Fórmula E, fortalecer sua base de fãs e promover um engajamento sustentável e contínuo."
 )
+
