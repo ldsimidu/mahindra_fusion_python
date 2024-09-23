@@ -1,14 +1,6 @@
 from function import *
 from database import *
 
-dados_conta = {
-    'Nome':'',
-    'Idade':'',
-    'CPF':'',
-    'Email':'',
-    'Telefone':''
-}
-
 def main():
     menu_principal()
 
@@ -54,7 +46,7 @@ def sua_conta():
                 main()  
                 return  
 
-def funcao02():
+def sobre_nos():
     mostrar_resumo()
     voltar_menu()
 
@@ -69,7 +61,7 @@ def funcao05():
 
 menu_opcoes = {
     '1':sua_conta,
-    '2':funcao02,
+    '2':sobre_nos,
     '3':funcao03,
     '4':funcao04,
     '5':funcao05
@@ -86,7 +78,7 @@ def menu_principal():
 ▀▀  █▪▀▀▀ ▀  ▀ ▀▀▀ ·▀▀▀▀▀ █▪▀▀▀▀▀• .▀  ▀ ▀  ▀     ▀▀▀  ▀▀▀  ▀▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪
 
         ''')
-    print('''-=-=-=-=-=-=-=-=-=- MENU -=-=-=-=-=-=-=-=-=-=-\n(1). Sua conta\n\n(2). Sobre Nós\n\n(3). BET\n\n(4). Mercado Virtual\n\n(5). Sobre Nós\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n
+    print('''-=-=-=-=-=-=-=-=-=- MENU -=-=-=-=-=-=-=-=-=-=-\n(1). Sua conta\n\n(2). Sobre Nós\n\n(3). BET\n\n(4). Mercado Virtual\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n
         ''')
     
     escolher_opcao = input('Qual opção deseja escolher?:\n-> ')

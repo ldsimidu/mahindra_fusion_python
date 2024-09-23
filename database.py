@@ -1,4 +1,4 @@
-indice_menu = ['1','2','3','4','5']
+indice_menu = ['1','2','3','4']
 s_n_respostas = ['s','n']
 
 titulo = '''
