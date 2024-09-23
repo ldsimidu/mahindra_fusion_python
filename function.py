@@ -1,6 +1,18 @@
 import os
 import platform
 
+def solicitar_dado(mensagem, funcao_validacao):
+    limpar_tela()
+    return funcao_validacao(mensagem)
+
+def imprime_dados_conta(dados):
+    limpar_tela()
+    print("\nDados da Conta:")
+    print("-" * 30)
+    for chave, valor in dados.items():
+        print(f"{chave: <10}: {valor}")
+    print("-" * 30)
+
 def escolha(opcoes, msg):
     escolha = input(msg).lower()
     while not escolha in opcoes:
@@ -12,6 +24,7 @@ def escolha(opcoes, msg):
 def verifica_numero(msg):
     numero = input(msg)
     while not numero.isnumeric() or numero == '':
+        limpar_tela()
         print('Por favor, digite algum valor correspondente (números).')
         numero = input(msg)
     else:
