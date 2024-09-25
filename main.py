@@ -15,6 +15,7 @@ def voltar_menu():
     limpar_tela()
     main()
 
+
 def sua_conta():
     global dados_conta
     if dados_conta is not None:
@@ -67,17 +68,14 @@ def market_mf():
 def funcao03():
     print('funcao4')
 
-def funcao05():
-    print(dados_conta)
 
 
-def exibir_nft1(produto):
+def nft1_exibir(produto):
     limpar_tela()
     produto = produtos['NFT1']['nome']
     print("=-=-=-=-=-=-=-= NFT1 =-=-=-=-=-=-=-=")
     print(f'''
-          {produtos['NFT1']['nome'].upper()}\n
-    -----------------------------------\n
+    {produtos['NFT1']['nome'].upper()}\n
     ID: {produtos['NFT1']['id']}\n
     Quantidade: {produtos['NFT1']['qtd']}\n
     Equipe: {produtos['NFT1']['equipe']}\n
@@ -89,30 +87,38 @@ def exibir_nft1(produto):
     Volta: {produtos['NFT1']['volta']}\n
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=''')
 
-    resposta = input("\nDeseja...\n\n1 - Ver informações detalhadas\n\n2 - Ver {}").strip().lower()
-    
-    if resposta == 's':
-        print("\n--- Informações Detalhadas ---")
-        print(f"Código: {produtos['NFT1']['codigo']}")
-        print(f"Preço Final: {produtos['NFT1']['preco']['final']}")
-        print(f"Preço Base: {produtos['NFT1']['preco']['base']}")
-        #print(f"Desenho: {produtos['NFT1']['desenho']}")
-    else:
-        print("Ok! Se precisar de mais informações, é só pedir.")
-    
 
+
+    escolher_opcao = input(f"\nDeseja...\n\n1 - Ver informações detalhadas\n\n2 - Ver {produto} em represetanção gráfica\n\n3 - Voltar").strip().lower()
+    
+    if escolher_opcao in nft_opcoes:
+        nft_opcoes[escolher_opcao]()
+    else:
+        nft1_exibir(produto)
+
+def nft1_voltar():
+    input('Pressione a tecla ENTER para retonar')
+    nft1_exibir()
+
+def nft1_detalhes():
+    limpar_tela()
+    print(f"\n--- Informações Detalhadas ---\nCódigo: {produtos['NFT1']['codigo']}\nPreço Final: {produtos['NFT1']['preco']['final']}\Preço Base: {produtos['NFT1']['preco']['base']}\n\n")
+    nft1_voltar()
+    #print(f"Desenho: {produtos['NFT1']['desenho']}")
+
+def nft1_grap():
+    limpar_tela()
+    print(f"Desenho: {produtos['NFT1']['desenho']}\n\n")
+    nft1_voltar()
+
+    
 
 def menu_principal():
-    limpar_tela()
-    print('''
-• ▌ ▄ ·.  ▄▄▄·  ▄ .▄▪   ▐ ▄ ·▄▄▄▄  ▄▄▄   ▄▄▄·     ·▄▄▄▄• ▄▌.▄▄ · ▪         ▐ ▄ 
-·██ ▐███▪▐█ ▀█ ██▪▐███ •█▌▐███▪ ██ ▀▄ █·▐█ ▀█     ▐▄▄·█▪██▌▐█ ▀. ██ ▪     •█▌▐█
-▐█ ▌▐▌▐█·▄█▀▀█ ██▀▐█▐█·▐█▐▐▌▐█· ▐█▌▐▀▀▄ ▄█▀▀█     ██▪ █▌▐█▌▄▀▀▀█▄▐█· ▄█▀▄ ▐█▐▐▌
-██ ██▌▐█▌▐█ ▪▐▌██▌▐▀▐█▌██▐█▌██. ██ ▐█•█▌▐█ ▪▐▌    ██▌.▐█▄█▌▐█▄▪▐█▐█▌▐█▌.▐▌██▐█▌
-▀▀  █▪▀▀▀ ▀  ▀ ▀▀▀ ·▀▀▀▀▀ █▪▀▀▀▀▀• .▀  ▀ ▀  ▀     ▀▀▀  ▀▀▀  ▀▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪
-''')
     
-    print('''-=-=-=-=-=-=-=-=-=- MENU -=-=-=-=-=-=-=-=-=-=-\n(1). Sua conta\n\n(2). Sobre Nós\n\n(3). BET\n\n(4). Mercado Virtual\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n
+    limpar_tela()
+    mahindra_fusion_logo()
+    
+    print('''-=-=-=-=-=-=-=-=-=- MENU -=-=-=-=-=-=-=-=-=-=-\n(1). Sua conta\n\n(2). Sobre Nós\n\n(3). BET\n\n(4). Mercado Virtual\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n
         ''')
     
     escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
@@ -120,21 +126,12 @@ def menu_principal():
         menu_principal_opcoes[escolher_opcao]()  
     else:
         menu_principal()
-        
-
-
 
 def menu_market():
     limpar_tela()
+    fusion_market_logo()
     print('''
-·▄▄▄▄• ▄▌.▄▄ · ▪         ▐ ▄     • ▌ ▄ ·.  ▄▄▄· ▄▄▄  ▄ •▄ ▄▄▄ .▄▄▄▄▄
-▐▄▄·█▪██▌▐█ ▀. ██ ▪     •█▌▐█    ·██ ▐███▪▐█ ▀█ ▀▄ █·█▌▄▌▪▀▄.▀·•██  
-██▪ █▌▐█▌▄▀▀▀█▄▐█· ▄█▀▄ ▐█▐▐▌    ▐█ ▌▐▌▐█·▄█▀▀█ ▐▀▀▄ ▐▀▀▄·▐▀▀▪▄ ▐█.▪
-██▌.▐█▄█▌▐█▄▪▐█▐█▌▐█▌.▐▌██▐█▌    ██ ██▌▐█▌▐█ ▪▐▌▐█•█▌▐█.█▌▐█▄▄▌ ▐█▌·
-▀▀▀  ▀▀▀  ▀▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪    ▀▀  █▪▀▀▀ ▀  ▀ .▀  ▀·▀  ▀ ▀▀▀  ▀▀▀ 
-''')
-    print('''
--=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-\n(1). Sobre\n\n(2). Produtos\n\n(3). Voltar\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n  
+-=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-\n(1). Sobre\n\n(2). Produtos\n\n(3). Voltar\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n  
         ''')
     
     escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
@@ -146,15 +143,10 @@ def menu_market():
 
 def produtos_market():
     limpar_tela()
+    fusion_market_logo()
+
     print('''
-·▄▄▄▄• ▄▌.▄▄ · ▪         ▐ ▄     • ▌ ▄ ·.  ▄▄▄· ▄▄▄  ▄ •▄ ▄▄▄ .▄▄▄▄▄
-▐▄▄·█▪██▌▐█ ▀. ██ ▪     •█▌▐█    ·██ ▐███▪▐█ ▀█ ▀▄ █·█▌▄▌▪▀▄.▀·•██  
-██▪ █▌▐█▌▄▀▀▀█▄▐█· ▄█▀▄ ▐█▐▐▌    ▐█ ▌▐▌▐█·▄█▀▀█ ▐▀▀▄ ▐▀▀▄·▐▀▀▪▄ ▐█.▪
-██▌.▐█▄█▌▐█▄▪▐█▐█▌▐█▌.▐▌██▐█▌    ██ ██▌▐█▌▐█ ▪▐▌▐█•█▌▐█.█▌▐█▄▄▌ ▐█▌·
-▀▀▀  ▀▀▀  ▀▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪    ▀▀  █▪▀▀▀ ▀  ▀ .▀  ▀·▀  ▀ ▀▀▀  ▀▀▀ 
-''')
-    print('''
--=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-\n(1). NFT1\n\n(2). NFT2\n\n(3). NFT3\n\n(4). Voltar\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n\n  
+-=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-\n(1). NFT1\n\n(2). NFT2\n\n(3). NFT3\n\n(4). Voltar\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n  
         ''')
     
     escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
@@ -168,8 +160,7 @@ menu_principal_opcoes = {
     '1':sua_conta,
     '2':sobre_nos,
     '3':funcao03,
-    '4':market_mf,
-    '5':funcao05
+    '4':market_mf
 }
 
 menu_market_opcoes = {
@@ -179,8 +170,14 @@ menu_market_opcoes = {
 }
 
 produtos_market_opcoes = {
-    '1':exibir_nft1,
+    '1':nft1_exibir,
     '2':'nft2',
     '3':'ntf3',
     '4':menu_market
+}
+
+nft_opcoes = {
+    '1':nft1_detalhes,
+    '2':nft1_grap,
+    '3':produtos_market
 }
