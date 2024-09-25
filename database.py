@@ -57,6 +57,7 @@ conclusao = (
 produtos = {
     'NFT1': {
         'id': '1',
+        'nome':'E-Tense Victory',
         'qtd': '12',
         'equipe': 'DS Techeetah',
         'veiculo': 'DS E-Tense FE21',
@@ -71,6 +72,7 @@ produtos = {
     },
     'NFT2': {
         'id': '2',
+        'nome':'Berlin Blitz',
         'qtd': '7',
         'equipe': 'Audi Sport ABT Schaeffler',
         'veiculo': 'Audi e-tron FE07',
@@ -84,6 +86,7 @@ produtos = {
     },
     'NFT3': {
         'id': '3',
+        'nome':"Evans' Triumph",
         'qtd': '9',
         'equipe': 'Jaguar TCS Racing',
         'veiculo': 'Jaguar I-Type 5',

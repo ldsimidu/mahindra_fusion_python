@@ -71,6 +71,37 @@ def funcao05():
     print(dados_conta)
 
 
+def exibir_nft1(produto):
+    limpar_tela()
+    produto = produtos['NFT1']['nome']
+    print("=-=-=-=-=-=-=-= NFT1 =-=-=-=-=-=-=-=")
+    print(f'''
+          {produtos['NFT1']['nome'].upper()}\n
+    -----------------------------------\n
+    ID: {produtos['NFT1']['id']}\n
+    Quantidade: {produtos['NFT1']['qtd']}\n
+    Equipe: {produtos['NFT1']['equipe']}\n
+    Veículo: {produtos['NFT1']['veiculo']}\n
+    Piloto: {produtos['NFT1']['piloto']}\n
+    Velocidade: {produtos['NFT1']['velocidade']}\n
+    Corrida: {produtos['NFT1']['corrida']}\n
+    Pista: {produtos['NFT1']['pista']}\n
+    Volta: {produtos['NFT1']['volta']}\n
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=''')
+
+    resposta = input("\nDeseja...\n\n1 - Ver informações detalhadas\n\n2 - Ver {}").strip().lower()
+    
+    if resposta == 's':
+        print("\n--- Informações Detalhadas ---")
+        print(f"Código: {produtos['NFT1']['codigo']}")
+        print(f"Preço Final: {produtos['NFT1']['preco']['final']}")
+        print(f"Preço Base: {produtos['NFT1']['preco']['base']}")
+        #print(f"Desenho: {produtos['NFT1']['desenho']}")
+    else:
+        print("Ok! Se precisar de mais informações, é só pedir.")
+    
+
+
 def menu_principal():
     limpar_tela()
     print('''
@@ -128,7 +159,7 @@ def produtos_market():
     
     escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
     if escolher_opcao in produtos_market_opcoes:
-        produtos_market_opcoes[escolher_opcao]()  
+        produtos_market_opcoes[escolher_opcao](produtos)  
     else:
         produtos_market()
 
@@ -141,15 +172,15 @@ menu_principal_opcoes = {
     '5':funcao05
 }
 
-produtos_market_opcoes = {
-    '1':'nft1',
-    '2':'nft2',
-    '3':'ntf3',
-    '4':menu_market
-}
-
 menu_market_opcoes = {
     '1':'sobre',
     '2':produtos_market,
     '3':main
+}
+
+produtos_market_opcoes = {
+    '1':exibir_nft1,
+    '2':'nft2',
+    '3':'ntf3',
+    '4':menu_market
 }
