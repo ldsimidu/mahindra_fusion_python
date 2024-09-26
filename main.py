@@ -53,6 +53,7 @@ def sua_conta():
                 return  
 
 def sobre_nos():
+    
     mostrar_resumo()
     voltar_menu()
 
@@ -69,47 +70,45 @@ def funcao03():
     print('funcao4')
 
 
+def exibir_detalhes_nft(nft):
+    """Exibe os detalhes do NFT selecionado."""
+    if nft in produtos:
+        detalhes = produtos[nft]
+        print(f"ID: {detalhes['id']}")
+        print(f"Nome: {detalhes['nome']}")
+        print(f"Quantidade: {detalhes['qtd']}")
+        print(f"Equipe: {detalhes['equipe']}")
+        print(f"Veículo: {detalhes['veiculo']}")
+        print(f"Piloto: {detalhes['piloto']}")
+        print(f"Velocidade: {detalhes['velocidade']}")
+        print(f"Corrida: {detalhes['corrida']}")
+        print(f"Pista: {detalhes['pista']}")
+        print(f"Volta: {detalhes['volta']}")
+    else:
+        print('NFT NAO ENCONTRADO')
+        nft_voltar()
 
-def nft1_exibir(produto):
-    limpar_tela()
-    produto = produtos['NFT1']['nome']
-    print("=-=-=-=-=-=-=-= NFT1 =-=-=-=-=-=-=-=")
-    print(f'''
-    {produtos['NFT1']['nome'].upper()}\n
-    ID: {produtos['NFT1']['id']}\n
-    Quantidade: {produtos['NFT1']['qtd']}\n
-    Equipe: {produtos['NFT1']['equipe']}\n
-    Veículo: {produtos['NFT1']['veiculo']}\n
-    Piloto: {produtos['NFT1']['piloto']}\n
-    Velocidade: {produtos['NFT1']['velocidade']}\n
-    Corrida: {produtos['NFT1']['corrida']}\n
-    Pista: {produtos['NFT1']['pista']}\n
-    Volta: {produtos['NFT1']['volta']}\n
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=''')
-
-
-
-    escolher_opcao = input(f"\nDeseja...\n\n1 - Ver informações detalhadas\n\n2 - Ver {produto} em represetanção gráfica\n\n3 - Voltar").strip().lower()
+    
+    escolher_opcao = input(f"\nDeseja...\n\n1 - Ver informações detalhadas\n\n2 - Ver {produtos[nft]['nome']} em representação gráfica\n\n3 - Voltar").strip().lower()
     
     if escolher_opcao in nft_opcoes:
-        nft_opcoes[escolher_opcao]()
+        nft_opcoes[escolher_opcao](nft) 
     else:
-        nft1_exibir(produto)
+        exibir_detalhes_nft(nft)
 
-def nft1_voltar():
-    input('Pressione a tecla ENTER para retonar')
-    nft1_exibir()
+def nft_voltar(nft):
+    input('Pressione a tecla ENTER para retornar')
+    exibir_detalhes_nft(nft)
 
-def nft1_detalhes():
+def nft_mais_detalhes(nft):
     limpar_tela()
-    print(f"\n--- Informações Detalhadas ---\nCódigo: {produtos['NFT1']['codigo']}\nPreço Final: {produtos['NFT1']['preco']['final']}\Preço Base: {produtos['NFT1']['preco']['base']}\n\n")
-    nft1_voltar()
-    #print(f"Desenho: {produtos['NFT1']['desenho']}")
+    print(f"\n--- Informações Detalhadas ---\nCódigo: {produtos[produto]['codigo']}\nPreço Final: {produtos[produto]['preco']['final']}\nPreço Base: {produtos[produto]['preco']['base']}\n\n")
+    nft_voltar(nft):
 
-def nft1_grap():
+def nft_grap(produto):
     limpar_tela()
-    print(f"Desenho: {produtos['NFT1']['desenho']}\n\n")
-    nft1_voltar()
+    print(f"Desenho: {produtos[produto]['desenho']}\n\n")
+    nft1_voltar(produto)
 
     
 
@@ -140,18 +139,18 @@ def menu_market():
     else:
         menu_market()
 
-
 def produtos_market():
     limpar_tela()
     fusion_market_logo()
 
-    print('''
--=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-\n(1). NFT1\n\n(2). NFT2\n\n(3). NFT3\n\n(4). Voltar\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n  
-        ''')
+    print('''-=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-\n(1). NFT1\n(2). NFT2\n(3). NFT3\n(4). Voltar\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n''')
     
     escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
     if escolher_opcao in produtos_market_opcoes:
-        produtos_market_opcoes[escolher_opcao](produtos)  
+        produto = f'NFT{escolher_opcao}'
+        exibir_detalhes_nft(produto)
+    elif escolher_opcao == '4':
+        menu_market()  # Supondo que essa função já está definida
     else:
         produtos_market()
 
@@ -170,14 +169,15 @@ menu_market_opcoes = {
 }
 
 produtos_market_opcoes = {
-    '1':nft1_exibir,
-    '2':'nft2',
-    '3':'ntf3',
-    '4':menu_market
+    '1': 'NFT1',
+    '2': 'NFT2',
+    '3': 'NFT3',
+    '4': menu_market
 }
 
+
 nft_opcoes = {
-    '1':nft1_detalhes,
-    '2':nft1_grap,
+    '1':nft_mais_detalhes,
+    '2':nft_grap,
     '3':produtos_market
 }
