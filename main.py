@@ -70,7 +70,9 @@ def funcao03():
     print('funcao4')
 
 
-def exibir_detalhes_nft(nft):
+def exibir_detalhes_nft():
+    limpar_tela()
+    fusion_market_logo()
     """Exibe os detalhes do NFT selecionado."""
     if nft in produtos:
         detalhes = produtos[nft]
@@ -89,28 +91,29 @@ def exibir_detalhes_nft(nft):
         nft_voltar()
 
     
-    escolher_opcao = input(f"\nDeseja...\n\n1 - Ver informações detalhadas\n\n2 - Ver {produtos[nft]['nome']} em representação gráfica\n\n3 - Voltar").strip().lower()
+    escolher_opcao = input(f"\nDeseja...----------------------\n\n1) Ver informações detalhadas\n\n2) Ver {produtos[nft]['nome']} em representação gráfica\n\n3) Voltar\n\n-------------------------------\n\n-> ").strip().lower()
     
     if escolher_opcao in nft_opcoes:
-        nft_opcoes[escolher_opcao](nft) 
+        nft_opcoes[escolher_opcao]() 
     else:
         exibir_detalhes_nft(nft)
 
 def nft_voltar(nft):
     input('Pressione a tecla ENTER para retornar')
+    limpar_tela()
     exibir_detalhes_nft(nft)
 
 def nft_mais_detalhes(nft):
     limpar_tela()
-    print(f"\n--- Informações Detalhadas ---\nCódigo: {produtos[produto]['codigo']}\nPreço Final: {produtos[produto]['preco']['final']}\nPreço Base: {produtos[produto]['preco']['base']}\n\n")
-    nft_voltar(nft):
+    detalhes = produtos[nft]
+    print(f"\n--- Informações Detalhadas ---\nCódigo: {detalhes['codigo']}\nPreço Final: {detalhes['preco']['final']}\nPreço Base: {detalhes['preco']['base']}\n")
+    nft_voltar(nft)
 
-def nft_grap(produto):
+def nft_grap(nft):
     limpar_tela()
-    print(f"Desenho: {produtos[produto]['desenho']}\n\n")
-    nft1_voltar(produto)
-
-    
+    detalhes = produtos[nft]
+    print(f"Desenho: {detalhes['desenho']}\n\n")
+    nft_voltar(nft)
 
 def menu_principal():
     
@@ -150,9 +153,9 @@ def produtos_market():
         produto = f'NFT{escolher_opcao}'
         exibir_detalhes_nft(produto)
     elif escolher_opcao == '4':
-        menu_market()  # Supondo que essa função já está definida
+        menu_market()
     else:
-        produtos_market()
+        produtos_market(nft)
 
 
 menu_principal_opcoes = {
