@@ -63,3 +63,7 @@ def limpar_tela():
         os.system('cls')
     else:
         os.system('clear')
+
+def sair_programa():
+    limpar_tela()
+    print('Finalizando programa....')

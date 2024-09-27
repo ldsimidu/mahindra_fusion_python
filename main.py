@@ -1,22 +1,24 @@
 from function import *
 from database import *
+from ilustration import *
+from bet import bet_menu
 dados_conta = None
-
-def main():
-    menu_principal()
+###global nft
+def main(nft):
+    menu_principal(nft)
 
 def confirma_idade(idade):
     if idade < 18:
         print('Você não tem permissão para entrar neste serviço.\nmotivo: IDADE ')
         voltar_menu()
     
-def voltar_menu():
+def voltar_menu(nft):
     input('\n\nPressione a tecla ENTER para voltar ao menu!')
     limpar_tela()
-    main()
+    main(nft)
 
 
-def sua_conta():
+def sua_conta(nft):
     global dados_conta
     if dados_conta is not None:
         imprime_dados_conta(dados_conta)
@@ -49,43 +51,30 @@ def sua_conta():
                 print('Por favor, insira seus dados novamente.')
             else:
                 print('Sua conta foi criada com sucesso!')
-                main()  
+                main(nft)  
                 return  
 
-def sobre_nos():
+def sobre_nos(nft):
     
     mostrar_resumo()
-    voltar_menu()
+    voltar_menu(nft)
 
-def market_mf():
+def market_mf(nft):
     if dados_conta == None:
         print('Você não possui uma conta, crie uma primeiro.')
-        voltar_menu()
+        voltar_menu(nft)
     else:
         idade = dados_conta['Idade']
         confirma_idade(idade)
-        menu_market()
+        menu_market(nft)
 
-def funcao03():
-    print('funcao4')
-
-
-def exibir_detalhes_nft():
+def exibir_detalhes_nft(nft):
     limpar_tela()
     fusion_market_logo()
     """Exibe os detalhes do NFT selecionado."""
     if nft in produtos:
         detalhes = produtos[nft]
-        print(f"ID: {detalhes['id']}")
-        print(f"Nome: {detalhes['nome']}")
-        print(f"Quantidade: {detalhes['qtd']}")
-        print(f"Equipe: {detalhes['equipe']}")
-        print(f"Veículo: {detalhes['veiculo']}")
-        print(f"Piloto: {detalhes['piloto']}")
-        print(f"Velocidade: {detalhes['velocidade']}")
-        print(f"Corrida: {detalhes['corrida']}")
-        print(f"Pista: {detalhes['pista']}")
-        print(f"Volta: {detalhes['volta']}")
+        print(f"ID: {detalhes['id']}\nNome: {detalhes['nome']}\nQuantidade: {detalhes['qtd']}\nEquipe: {detalhes['equipe']}\nVeículo: {detalhes['veiculo']}\nPiloto: {detalhes['piloto']}\nVelocidade: {detalhes['velocidade']}\nCorrida: {detalhes['corrida']}\nPista: {detalhes['pista']}\nVolta: {detalhes['volta']}")
     else:
         print('NFT NAO ENCONTRADO')
         nft_voltar()
@@ -94,7 +83,7 @@ def exibir_detalhes_nft():
     escolher_opcao = input(f"\nDeseja...----------------------\n\n1) Ver informações detalhadas\n\n2) Ver {produtos[nft]['nome']} em representação gráfica\n\n3) Voltar\n\n-------------------------------\n\n-> ").strip().lower()
     
     if escolher_opcao in nft_opcoes:
-        nft_opcoes[escolher_opcao]() 
+        nft_opcoes[escolher_opcao](nft) 
     else:
         exibir_detalhes_nft(nft)
 
@@ -115,21 +104,21 @@ def nft_grap(nft):
     print(f"Desenho: {detalhes['desenho']}\n\n")
     nft_voltar(nft)
 
-def menu_principal():
+def menu_principal(nft):
     
     limpar_tela()
     mahindra_fusion_logo()
     
-    print('''-=-=-=-=-=-=-=-=-=- MENU -=-=-=-=-=-=-=-=-=-=-\n(1). Sua conta\n\n(2). Sobre Nós\n\n(3). BET\n\n(4). Mercado Virtual\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n
+    print('''-=-=-=-=-=-=-=-=-=- MENU -=-=-=-=-=-=-=-=-=-=-\n(1). Sua conta\n\n(2). Sobre Nós\n\n(3). BET\n\n(4). Mercado Virtual\n\n(5). Sair\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n
         ''')
     
     escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
     if escolher_opcao in menu_principal_opcoes:
-        menu_principal_opcoes[escolher_opcao]()  
+        menu_principal_opcoes[escolher_opcao](nft)  
     else:
-        menu_principal()
+        menu_principal(nft)
 
-def menu_market():
+def menu_market(nft):
     limpar_tela()
     fusion_market_logo()
     print('''
@@ -138,11 +127,11 @@ def menu_market():
     
     escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
     if escolher_opcao in menu_market_opcoes:
-        menu_market_opcoes[escolher_opcao]()  
+        menu_market_opcoes[escolher_opcao](nft)  
     else:
         menu_market()
 
-def produtos_market():
+def produtos_market(nft):
     limpar_tela()
     fusion_market_logo()
 
@@ -158,11 +147,13 @@ def produtos_market():
         produtos_market(nft)
 
 
+
 menu_principal_opcoes = {
     '1':sua_conta,
     '2':sobre_nos,
-    '3':funcao03,
-    '4':market_mf
+    '3':bet_menu,
+    '4':market_mf,
+    '5':sair_programa
 }
 
 menu_market_opcoes = {

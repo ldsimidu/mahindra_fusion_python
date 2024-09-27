@@ -47,3 +47,48 @@ turquoise_blue_color_code = "\033[36m"
 reset_color_code = "\033[0m"
 
 colored_art3 = turquoise_blue_color_code + art3 + reset_color_code
+
+
+def mahindra_fusion_logo():
+    art4 = '''
+• ▌ ▄ ·.  ▄▄▄·  ▄ .▄▪   ▐ ▄ ·▄▄▄▄  ▄▄▄   ▄▄▄·     ·▄▄▄▄• ▄▌.▄▄ · ▪         ▐ ▄ 
+·██ ▐███▪▐█ ▀█ ██▪▐███ •█▌▐███▪ ██ ▀▄ █·▐█ ▀█     ▐▄▄·█▪██▌▐█ ▀. ██ ▪     •█▌▐█
+▐█ ▌▐▌▐█·▄█▀▀█ ██▀▐█▐█·▐█▐▐▌▐█· ▐█▌▐▀▀▄ ▄█▀▀█     ██▪ █▌▐█▌▄▀▀▀█▄▐█· ▄█▀▄ ▐█▐▐▌
+██ ██▌▐█▌▐█ ▪▐▌██▌▐▀▐█▌██▐█▌██. ██ ▐█•█▌▐█ ▪▐▌    ██▌.▐█▄█▌▐█▄▪▐█▐█▌▐█▌.▐▌██▐█▌
+▀▀  █▪▀▀▀ ▀  ▀ ▀▀▀ ·▀▀▀▀▀ █▪▀▀▀▀▀• .▀  ▀ ▀  ▀     ▀▀▀  ▀▀▀  ▀▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪
+'''
+
+    lime_green_color_code = "\033[92m"
+    reset_color_code = "\033[0m"
+
+    colored_art = lime_green_color_code + art4 + reset_color_code
+    print(colored_art)
+
+def fusion_market_logo():
+    art5 = '''
+·▄▄▄▄• ▄▌.▄▄ · ▪         ▐ ▄     • ▌ ▄ ·.  ▄▄▄· ▄▄▄  ▄ •▄ ▄▄▄ .▄▄▄▄▄
+▐▄▄·█▪██▌▐█ ▀. ██ ▪     •█▌▐█    ·██ ▐███▪▐█ ▀█ ▀▄ █·█▌▄▌▪▀▄.▀·•██  
+██▪ █▌▐█▌▄▀▀▀█▄▐█· ▄█▀▄ ▐█▐▐▌    ▐█ ▌▐▌▐█·▄█▀▀█ ▐▀▀▄ ▐▀▀▄·▐▀▀▪▄ ▐█.▪
+██▌.▐█▄█▌▐█▄▪▐█▐█▌▐█▌.▐▌██▐█▌    ██ ██▌▐█▌▐█ ▪▐▌▐█•█▌▐█.█▌▐█▄▄▌ ▐█▌·
+▀▀▀  ▀▀▀  ▀▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪    ▀▀  █▪▀▀▀ ▀  ▀ .▀  ▀·▀  ▀ ▀▀▀  ▀▀▀ 
+'''
+    lime_green_color_code = "\033[92m"
+    reset_color_code = "\033[0m"
+
+    colored_art = lime_green_color_code + art5 + reset_color_code
+    print(colored_art)
+
+def fusion_bet_logo():
+    art6 = '''    
+·▄▄▄▄• ▄▌.▄▄ · ▪         ▐ ▄     ▄▄▄▄· ▄▄▄ .▄▄▄▄▄
+▐▄▄·█▪██▌▐█ ▀. ██ ▪     •█▌▐█    ▐█ ▀█▪▀▄.▀·•██  
+██▪ █▌▐█▌▄▀▀▀█▄▐█· ▄█▀▄ ▐█▐▐▌    ▐█▀▀█▄▐▀▀▪▄ ▐█.▪
+██▌.▐█▄█▌▐█▄▪▐█▐█▌▐█▌.▐▌██▐█▌    ██▄▪▐█▐█▄▄▌ ▐█▌·
+▀▀▀  ▀▀▀  ▀▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪    ·▀▀▀▀  ▀▀▀  ▀▀▀ 
+    '''
+    
+    lime_green_color_code = "\033[92m"
+    reset_color_code = "\033[0m"
+
+    colored_art = lime_green_color_code + art6 + reset_color_code
+    print(colored_art)

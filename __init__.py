@@ -1,4 +1,5 @@
 from main import main
 
 if __name__ == '__main__':
-    main()
+    nft = 'NFT1'  # Ou outro NFT que você deseja passar
+    main(nft)
