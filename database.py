@@ -51,7 +51,13 @@ produtos = {
     }
 }
 
-
+corridas = {
+    "Corrida 1": [{"Nome": f"Corredor {i+1}", "Equipe": f"Equipe {i%5+1}"} for i in range(20)],
+    "Corrida 2": [{"Nome": f"Corredor {i+1}", "Equipe": f"Equipe {i%5+1}"} for i in range(20)],
+    "Corrida 3": [{"Nome": f"Corredor {i+1}", "Equipe": f"Equipe {i%5+1}"} for i in range(20)],
+    "Corrida 4": [{"Nome": f"Corredor {i+1}", "Equipe": f"Equipe {i%5+1}"} for i in range(20)],
+    "Corrida 5": [{"Nome": f"Corredor {i+1}", "Equipe": f"Equipe {i%5+1}"} for i in range(20)]
+}
 
 
 titulo = '''

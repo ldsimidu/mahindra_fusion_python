@@ -17,7 +17,6 @@ def voltar_menu(nft):
     limpar_tela()
     main(nft)
 
-
 def sua_conta(nft):
     global dados_conta
     if dados_conta is not None:
@@ -109,11 +108,13 @@ def menu_principal(nft):
     limpar_tela()
     mahindra_fusion_logo()
     
-    print('''-=-=-=-=-=-=-=-=-=- MENU -=-=-=-=-=-=-=-=-=-=-\n(1). Sua conta\n\n(2). Sobre Nós\n\n(3). BET\n\n(4). Mercado Virtual\n\n(5). Sair\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n
+    print('''-=-=-=-=-=-=-=-=-=- MENU -=-=-=-=-=-=-=-=-=-=-\n\n(1). Sua conta\n\n(2). Sobre Nós\n\n(3). BET\n\n(4). Mercado Virtual\n\n(5). Sair\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n
         ''')
     
     escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
-    if escolher_opcao in menu_principal_opcoes:
+    if escolher_opcao == '5':
+        sair_programa()
+    elif escolher_opcao in menu_principal_opcoes:
         menu_principal_opcoes[escolher_opcao](nft)  
     else:
         menu_principal(nft)
@@ -122,7 +123,7 @@ def menu_market(nft):
     limpar_tela()
     fusion_market_logo()
     print('''
--=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-\n(1). Sobre\n\n(2). Produtos\n\n(3). Voltar\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n  
+-=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-\n\n(1). Sobre\n\n(2). Produtos\n\n(3). Voltar\n\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n  
         ''')
     
     escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
@@ -135,9 +136,10 @@ def produtos_market(nft):
     limpar_tela()
     fusion_market_logo()
 
-    print('''-=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-\n(1). NFT1\n(2). NFT2\n(3). NFT3\n(4). Voltar\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n''')
+    print('''-=-=-=-=-=-=- BEM-VINDO AO FUSION MARKET -=-=-=-=-=-=-\n\n(1). NFT1\n(2). NFT2\n(3). NFT3\n(4). Voltar\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n''')
     
     escolher_opcao = input('Qual opção deseja escolher?:\n-> ')
+    
     if escolher_opcao in produtos_market_opcoes:
         produto = f'NFT{escolher_opcao}'
         exibir_detalhes_nft(produto)
@@ -152,8 +154,7 @@ menu_principal_opcoes = {
     '1':sua_conta,
     '2':sobre_nos,
     '3':bet_menu,
-    '4':market_mf,
-    '5':sair_programa
+    '4':market_mf
 }
 
 menu_market_opcoes = {
