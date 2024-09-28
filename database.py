@@ -112,3 +112,64 @@ conclusao = (
     "presença da Fórmula E, fortalecer sua base de fãs e promover um engajamento sustentável e contínuo."
 )
 
+
+def imprimir_descricao_nft():
+    
+    descricao = """
+    Funcionalidade Relacionada a NFTs:
+
+    1. Exibir Detalhes do NFT (Função `exibir_detalhes_nft`):
+       - Descrição: Esta função exibe as informações detalhadas de um NFT específico. O código exibe atributos como ID, nome, quantidade, equipe, veículo, piloto, velocidade, corrida, pista e volta, sugerindo que os NFTs são relacionados a corridas.
+       - Comportamento:
+         1. Identifica o NFT pela sua chave (ex: 'NFT1', 'NFT2').
+         2. Limpa a tela e exibe um logotipo gráfico.
+         3. Exibe os detalhes do NFT.
+         4. O usuário pode optar por:
+            - Ver mais detalhes.
+            - Ver uma representação gráfica.
+            - Voltar ao menu anterior.
+
+    2. Mais Detalhes do NFT (Função `nft_mais_detalhes`):
+       - Descrição: Exibe detalhes adicionais, como o código e os preços (base e final).
+       - Comportamento:
+         1. Limpa a tela e exibe detalhes adicionais.
+         2. Retorna à tela anterior após exibir as informações.
+
+    3. Representação Gráfica do NFT (Função `nft_grap`):
+       - Descrição: Exibe a representação visual do NFT.
+       - Comportamento:
+         1. Limpa a tela e exibe o "desenho" do NFT.
+         2. Retorna à tela anterior após exibir o gráfico.
+
+    4. Voltar ao Menu (Função `nft_voltar`):
+       - Descrição: Permite que o usuário retorne à tela anterior pressionando ENTER.
+       - Comportamento:
+         1. Exibe uma mensagem solicitando que o usuário pressione ENTER.
+         2. Retorna à função que exibe os detalhes do NFT.
+
+    5. Menu de Produtos do Mercado (Função `produtos_market`):
+       - Descrição: Exibe os produtos disponíveis no mercado virtual (NFT1, NFT2, NFT3).
+       - Comportamento:
+         1. Limpa a tela e exibe o logotipo gráfico.
+         2. Apresenta uma lista de NFTs disponíveis.
+         3. O usuário pode selecionar um NFT para ver os detalhes ou voltar ao menu anterior.
+
+    6. Menu do Mercado Virtual (Função `menu_market`):
+       - Descrição: Menu principal do "Fusion Market" onde o usuário pode visualizar informações gerais, produtos ou voltar ao menu principal.
+       - Comportamento:
+         1. Limpa a tela e exibe o logotipo gráfico do mercado.
+         2. Apresenta três opções: Sobre, Produtos ou Voltar ao menu principal.
+
+    7. Definição e Comportamento do Dicionário de NFTs (`produtos`):
+       - Descrição: O dicionário `produtos` armazena as informações detalhadas de cada NFT, como nome, equipe, veículo, piloto, velocidade, etc.
+       - Comportamento:
+         - As funções acessam essas informações para exibir os detalhes e representar os NFTs.
+
+    8. Menu Principal e Integração:
+       - As funcionalidades relacionadas a NFTs são acessadas através do menu principal pela opção 4, que leva ao mercado virtual.
+
+    9. Dependências:
+       - As funções dependem de variáveis e funções auxiliares, como `produtos`, `limpar_tela()`, e `fusion_market_logo()` para funcionar corretamente.
+
+    """
+    print(descricao)

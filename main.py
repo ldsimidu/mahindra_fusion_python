@@ -57,6 +57,11 @@ def sobre_nos(nft):
     
     mostrar_resumo()
     voltar_menu(nft)
+    
+def sobre_nft(nft):
+    limpar_tela()
+    imprimir_descricao_nft()
+    voltar_menu(nft)
 
 def market_mf(nft):
     if dados_conta == None:
@@ -166,7 +171,7 @@ menu_principal_opcoes = {
 }
 
 menu_market_opcoes = {
-    '1':'sobre',
+    '1':sobre_nft,
     '2':produtos_market,
     '3':main
 }
