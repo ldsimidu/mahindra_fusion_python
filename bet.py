@@ -21,12 +21,29 @@ def exibir_corrida(corrida, nome_corrida):
     df["Odds"] = df["Posição"].apply(calcular_odds)
     df = df[["Posição", "Nome", "Equipe", "Odds"]]
     print(tabulate(df, headers='keys', tablefmt='grid', showindex=False))
+    
     if nome_corrida in apostas_realizadas:
         print(f"Você já apostou em {nome_corrida}. Não é possível apostar novamente.\n")
     else:
-        aposta = input("Em quem deseja apostar? (Informe a posição):\n-> ")
-        aposta = int(aposta) - 1
-        valor_aposta = float(input("Quanto deseja apostar?\n-> R$ "))
+        while True:
+            aposta = input("Em quem deseja apostar? (Informe a posição):\n-> ")
+            if not aposta.isdigit() or int(aposta) < 1 or int(aposta) > len(corrida):
+                print('Insira uma posição válida.')
+            else:
+                aposta = int(aposta) - 1
+                break
+
+        while True:
+            valor_aposta = input("Quanto deseja apostar?\n-> R$ ")
+            try:
+                valor_aposta = float(valor_aposta)
+                if valor_aposta <= 0:
+                    print('Insira um valor positivo.')
+                else:
+                    break
+            except ValueError:
+                print('Insira um valor numérico válido.')
+        
         odds = calcular_odds(aposta + 1)
         apostas[nome_corrida] = {
             "Corredor": corrida[aposta],
@@ -35,6 +52,7 @@ def exibir_corrida(corrida, nome_corrida):
         }
         apostas_realizadas[nome_corrida] = True
         print(f"Você apostou R$ {valor_aposta:.2f} no {apostas[nome_corrida]['Corredor']['Nome']} da {apostas[nome_corrida]['Corredor']['Equipe']}.\n")
+
 
 def mostrar_resultados(nft):
     limpar_tela()

@@ -3,6 +3,7 @@ from ilustration import *
 indice_menu = ['1','2','3','4']
 indice_market = ['1','2','3']
 s_n_respostas = ['s','n']
+opcoes_apostas = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20']
 
 produtos = {
     'NFT1': {

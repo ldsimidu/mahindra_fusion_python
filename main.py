@@ -21,13 +21,13 @@ def sua_conta(nft):
     global dados_conta
     if dados_conta is not None:
         imprime_dados_conta(dados_conta)
-        voltar_menu()
+        voltar_menu(nft)
         return
     
     limpar_tela()
     criar_conta = escolha(s_n_respostas, 'Vimos que não possui uma conta, deseja criá-la?:\n(s/n)-> ')
     if criar_conta == 'n':
-        menu_principal()
+        menu_principal(nft)
     else:
         while True:
             nome = solicitar_dado('Insira seu nome completo:\n-> ', nao_vazio)
@@ -67,6 +67,15 @@ def market_mf(nft):
         confirma_idade(idade)
         menu_market(nft)
 
+def entrar_bet(nft):
+    if dados_conta == None:
+        print('Você não possui uma conta, crie uma primeiro.')
+        voltar_menu(nft)
+    else:
+        idade = dados_conta['Idade']
+        confirma_idade(idade)
+        bet_menu(nft)
+
 def exibir_detalhes_nft(nft):
     limpar_tela()
     fusion_market_logo()
@@ -75,8 +84,7 @@ def exibir_detalhes_nft(nft):
         detalhes = produtos[nft]
         print(f"ID: {detalhes['id']}\nNome: {detalhes['nome']}\nQuantidade: {detalhes['qtd']}\nEquipe: {detalhes['equipe']}\nVeículo: {detalhes['veiculo']}\nPiloto: {detalhes['piloto']}\nVelocidade: {detalhes['velocidade']}\nCorrida: {detalhes['corrida']}\nPista: {detalhes['pista']}\nVolta: {detalhes['volta']}")
     else:
-        print('NFT NAO ENCONTRADO')
-        nft_voltar()
+        menu_market(nft)
 
     
     escolher_opcao = input(f"\nDeseja...----------------------\n\n1) Ver informações detalhadas\n\n2) Ver {produtos[nft]['nome']} em representação gráfica\n\n3) Voltar\n\n-------------------------------\n\n-> ").strip().lower()
@@ -153,7 +161,7 @@ def produtos_market(nft):
 menu_principal_opcoes = {
     '1':sua_conta,
     '2':sobre_nos,
-    '3':bet_menu,
+    '3':entrar_bet,
     '4':market_mf
 }
 
