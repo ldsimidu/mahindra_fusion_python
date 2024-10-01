@@ -57,11 +57,16 @@ def sobre_nos(nft):
     
     mostrar_resumo()
     voltar_menu(nft)
-    
+
+def voltar_menu_market(nft):
+    input('Pressione a tecla ENTER para retornar')
+    limpar_tela()
+    menu_market(nft)
+
 def sobre_nft(nft):
     limpar_tela()
     imprimir_descricao_nft()
-    voltar_menu(nft)
+    voltar_menu_market(nft)
 
 def market_mf(nft):
     if dados_conta == None:
@@ -107,7 +112,7 @@ def nft_voltar(nft):
 def nft_mais_detalhes(nft):
     limpar_tela()
     detalhes = produtos[nft]
-    print(f"\n--- Informações Detalhadas ---\nCódigo: {detalhes['codigo']}\nPreço Final: {detalhes['preco']['final']}\nPreço Base: {detalhes['preco']['base']}\n")
+    print(f"\n--- Informações Detalhadas ---\nCódigo: \n\n{detalhes['codigo']}\n")
     nft_voltar(nft)
 
 def nft_grap(nft):
