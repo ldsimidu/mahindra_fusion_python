@@ -7,10 +7,15 @@ dados_conta = None
 def main(nft):
     menu_principal(nft)
 
-def confirma_idade(idade):
+def sair_programa():
+    limpar_tela()
+    print('Saindo do sistema...')
+    exit()
+
+def confirma_idade(idade, nft):
     if idade < 18:
         print('Você não tem permissão para entrar neste serviço.\nmotivo: IDADE ')
-        voltar_menu()
+        voltar_menu(nft)
     
 def voltar_menu(nft):
     input('\n\nPressione a tecla ENTER para voltar ao menu!')
@@ -74,7 +79,7 @@ def market_mf(nft):
         voltar_menu(nft)
     else:
         idade = dados_conta['Idade']
-        confirma_idade(idade)
+        confirma_idade(idade, nft)
         menu_market(nft)
 
 def entrar_bet(nft):
@@ -83,7 +88,7 @@ def entrar_bet(nft):
         voltar_menu(nft)
     else:
         idade = dados_conta['Idade']
-        confirma_idade(idade)
+        confirma_idade(idade, nft)
         bet_menu(nft)
 
 def exibir_detalhes_nft(nft):
@@ -172,7 +177,8 @@ menu_principal_opcoes = {
     '1':sua_conta,
     '2':sobre_nos,
     '3':entrar_bet,
-    '4':market_mf
+    '4':market_mf,
+    '5':sair_programa
 }
 
 menu_market_opcoes = {
