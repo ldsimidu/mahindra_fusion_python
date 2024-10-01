@@ -153,7 +153,7 @@ def menu_market(nft):
     if escolher_opcao in menu_market_opcoes:
         menu_market_opcoes[escolher_opcao](nft)  
     else:
-        menu_market()
+        menu_market(nft)
 
 def produtos_market(nft):
     limpar_tela()
